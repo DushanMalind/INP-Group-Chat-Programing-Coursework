@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Client1FromController">
+   <children>
+      <TextArea fx:id="txtAreaClient1" layoutX="90.0" layoutY="109.0" prefHeight="324.0" prefWidth="640.0" />
+      <TextField fx:id="txtFiledClient1" layoutX="90.0" layoutY="468.0" prefHeight="58.0" prefWidth="444.0" />
+      <JFXButton fx:id="btnNewSend" layoutX="565.0" layoutY="468.0" onAction="#btnSend" prefHeight="58.0" prefWidth="163.0" text="Send" />
+      <Label layoutX="4.0" layoutY="8.0" prefHeight="58.0" prefWidth="798.0" text="Label" />
+   </children>
+</AnchorPane>
