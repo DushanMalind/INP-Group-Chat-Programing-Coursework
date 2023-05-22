@@ -11,7 +11,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 
-public class Client2FromController {
+public class Client3FromController {
 
     @FXML
     private JFXButton btnNewSend;
@@ -20,12 +20,10 @@ public class Client2FromController {
     private AnchorPane root;
 
     @FXML
-    private TextArea txtAreaClient2;
+    private TextArea txtAreaClient3;
 
     @FXML
-    private TextField txtFiledClient12;
-
-
+    private TextField txtFiledClient3;
 
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
@@ -37,15 +35,14 @@ public class Client2FromController {
     public void initialize(){
         new Thread(() -> {
             try {
-                socket=new Socket("localhost",3060);
+                socket=new Socket("localhost",4000);
 
-                dataOutputStream=new DataOutputStream(socket.getOutputStream());
                 dataInputStream=new DataInputStream(socket.getInputStream());
-
+                dataOutputStream=new DataOutputStream(socket.getOutputStream());
 
                 while (!message.equalsIgnoreCase("Finish")){
                     message=dataInputStream.readUTF();
-                    txtAreaClient2.appendText("\n"+message.trim());
+                    txtAreaClient3.appendText("\n"+message.trim());
 
 
 
@@ -64,13 +61,11 @@ public class Client2FromController {
     @FXML
     void btnSend(ActionEvent event) {
         try {
-            dataOutputStream.writeUTF(txtFiledClient12.getText().trim());
-            reply=txtFiledClient12.getText();
-            txtAreaClient2.appendText("\nClient2 :"+reply);
+            dataOutputStream.writeUTF(txtFiledClient3.getText().trim());
+            reply=txtFiledClient3.getText();
+            txtAreaClient3.appendText("\nClient3 :"+reply);
             dataOutputStream.flush();
-            txtFiledClient12.clear();
-
-
+            txtFiledClient3.clear();
         }catch (Exception e){
             e.printStackTrace();
         }

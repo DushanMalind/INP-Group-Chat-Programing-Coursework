@@ -60,17 +60,12 @@ public class ServerFromController {
 
                 while (!message.equalsIgnoreCase("Finish")){
                     message=dataInputStream.readUTF();
-                    txtAreaServer.appendText("\nClient1: "+message.trim());
+                    txtAreaServer.appendText("\nClient1: "+message.trim()+"\n"+"\r");
 
-                    dataOutputStream2.writeUTF("Client1 :"+message.trim());
-                    dataOutputStream3.writeUTF("Client1 :"+message.trim());
-
-                    dataOutputStream2.flush();
-                    dataOutputStream3.flush();
 
                 }
-               /* dataInputStream.close();
-                dataOutputStream.close();*/
+                dataInputStream.close();
+                dataOutputStream.close();
 
 
             }catch (Exception e){
@@ -80,7 +75,7 @@ public class ServerFromController {
 
         new Thread(() -> {
             try {
-                serverSocket2=new ServerSocket(3060);
+                serverSocket2=new ServerSocket(3002);
                 txtAreaServer.appendText("Server Start");
                 socket2=serverSocket2.accept();
                 txtAreaServer.appendText("\nClient2 Start");
@@ -91,18 +86,12 @@ public class ServerFromController {
 
                 while (!message2.equalsIgnoreCase("Finish")){
                     message2=dataInputStream2.readUTF();
-                    txtAreaServer.appendText("\nClient2: "+message2.trim());
-
-                    dataOutputStream.writeUTF("Client2 :"+message2.trim());
-                    dataOutputStream3.writeUTF("Client2 :"+message2.trim());
-
-                    dataOutputStream.flush();
-                    dataOutputStream3.flush();
+                    txtAreaServer.appendText("\nClient2: "+message2.trim()+"\n"+"\n");
 
 
                 }
-                /*dataInputStream2.close();
-                dataOutputStream2.close();*/
+                dataInputStream2.close();
+                dataOutputStream2.close();
 
 
             }catch (Exception e){
@@ -112,7 +101,7 @@ public class ServerFromController {
 
         new Thread(() -> {
             try {
-                serverSocket3=new ServerSocket(4000);
+                serverSocket3=new ServerSocket(3003);
                 txtAreaServer.appendText("Server Start");
                 socket3=serverSocket3.accept();
                 txtAreaServer.appendText("\nClient3 Start");
@@ -122,14 +111,8 @@ public class ServerFromController {
 
 
                 while (!message3.equalsIgnoreCase("Finish")){
-                    message3=dataInputStream3.readUTF();
-                    txtAreaServer.appendText("\nClient3: "+message3.trim());
-
-                    dataOutputStream.writeUTF("Client3 :"+message3.trim());
-                    dataOutputStream2.writeUTF("Client3 :"+message3.trim());
-
-                    dataOutputStream.flush();
-                    dataOutputStream2.flush();
+                    message3=dataInputStream2.readUTF();
+                    txtAreaServer.appendText("\nClient3: "+message2.trim()+"\n"+"\n");
 
 
                 }
@@ -146,20 +129,10 @@ public class ServerFromController {
     @FXML
     void btnSend(ActionEvent event) {
         try {
-
-            dataOutputStream.writeUTF("Server :"+txtFiledServer.getText().trim());
-            dataOutputStream.flush();
-
-            dataOutputStream2.writeUTF("Server :"+txtFiledServer.getText().trim());
-            dataOutputStream2.flush();
-
-            dataOutputStream3.writeUTF("Server :"+txtFiledServer.getText().trim());
-            dataOutputStream3.flush();
-
-            /*String read=txtFiledServer.getText();
+            String read=txtFiledServer.getText();
             txtAreaServer.appendText("\tServer:"+read.trim());
             dataOutputStream.writeUTF(read);
-            dataOutputStream.flush();*/
+            dataOutputStream.flush();
 
             /*String read1=txtFiledServer.getText();
             txtAreaServer.appendText("\tServer:"+read1.trim());

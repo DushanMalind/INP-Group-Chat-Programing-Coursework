@@ -15,6 +15,7 @@ public class AppInitializer extends Application {
         Parent root= FXMLLoader.load(this.getClass().getResource("view/serverFrom.fxml"));
         Scene mainScene=new Scene(root);
         primaryStage.setScene(mainScene);
+        /*primaryStage.setResizable(false);*/
         primaryStage.setTitle("Server From");
         primaryStage.centerOnScreen();
         primaryStage.show();

@@ -33,6 +33,7 @@ public class Client1FromController {
     Socket socket;
 
     String message="";
+    String reply="";
 
     public void initialize(){
         new Thread(() -> {
@@ -44,13 +45,13 @@ public class Client1FromController {
 
                 while (!message.equalsIgnoreCase("Finish")){
                     message=dataInputStream.readUTF();
-                    txtAreaClient1.appendText("\nServer: "+message.trim()+"\n");
+                    txtAreaClient1.appendText("\n"+message.trim());
 
 
 
                 }
-                dataInputStream.close();
-                dataOutputStream.close();
+               /* dataInputStream.close();
+                dataOutputStream.close();*/
 
 
             }catch (Exception e){
@@ -63,10 +64,17 @@ public class Client1FromController {
     @FXML
     void btnSend(ActionEvent event) {
         try {
-            String read=txtFiledClient1.getText();
+
+            dataOutputStream.writeUTF(txtFiledClient1.getText().trim());
+            reply=txtFiledClient1.getText();
+            txtAreaClient1.appendText("\nClient1 :"+reply);
+            dataOutputStream.flush();
+            txtFiledClient1.clear();
+
+            /*String read=txtFiledClient1.getText();
             txtAreaClient1.appendText("\tClient1 :"+read.trim());
             dataOutputStream.writeUTF(read);
-            txtFiledClient1.clear();
+            txtFiledClient1.clear();*/
         }catch (Exception e){
             e.printStackTrace();
         }

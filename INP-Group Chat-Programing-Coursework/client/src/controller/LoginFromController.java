@@ -33,11 +33,20 @@ public class LoginFromController {
             stage.setTitle("Client Chat 01");
             stage.show();
         }
+
         if (txtLogin.getText().equalsIgnoreCase("client2")){
             /*Navigation.navigation(Routes.CLIENT2,root);*/
             Stage stage = new Stage();
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/client2From.fxml"))));
             stage.setTitle("Client Chat 02");
+            stage.show();
+        }
+
+        if (txtLogin.getText().equalsIgnoreCase("client3")){
+            /*Navigation.navigation(Routes.CLIENT2,root);*/
+            Stage stage = new Stage();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/Client3From.fxml"))));
+            stage.setTitle("Client Chat 03");
             stage.show();
         }
     }
