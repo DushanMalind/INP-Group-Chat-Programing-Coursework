@@ -9,10 +9,9 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServerFromController {
+public class Client2FromController {
 
     @FXML
     private JFXButton btnNewSend;
@@ -21,34 +20,31 @@ public class ServerFromController {
     private AnchorPane root;
 
     @FXML
-    private TextArea txtAreaServer;
+    private TextArea txtAreaClient2;
 
     @FXML
-    private TextField txtFiledServer;
+    private TextField txtFiledClient12;
 
-    ServerSocket serverSocket;
-    Socket socket;
+
+
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
+    Socket socket;
 
     String message="";
-    String replay="";
 
     public void initialize(){
         new Thread(() -> {
             try {
-                serverSocket=new ServerSocket(3001);
-                txtAreaServer.appendText("Server Start");
-                socket=serverSocket.accept();
-                txtAreaServer.appendText("\nClient Start");
+                socket=new Socket("localhost",3001);
+
                 dataInputStream=new DataInputStream(socket.getInputStream());
                 dataOutputStream=new DataOutputStream(socket.getOutputStream());
 
-
-
                 while (!message.equalsIgnoreCase("Finish")){
                     message=dataInputStream.readUTF();
-                    txtAreaServer.appendText("\nClient: "+message.trim()+"\n"+"\r");
+                    txtAreaClient2.appendText("\nServer: "+message.trim()+"\n");
+
 
 
                 }
@@ -59,21 +55,20 @@ public class ServerFromController {
             }catch (Exception e){
                 e.printStackTrace();
             }
+
         }).start();
     }
 
     @FXML
     void btnSend(ActionEvent event) {
         try {
-            String read=txtFiledServer.getText();
-            txtAreaServer.appendText("\tServer:"+read.trim());
+            String read=txtFiledClient12.getText();
+            txtAreaClient2.appendText("\tClient1 :"+read.trim());
             dataOutputStream.writeUTF(read);
-            txtFiledServer.clear();
+            txtFiledClient12.clear();
         }catch (Exception e){
             e.printStackTrace();
         }
-
-
     }
 
 }

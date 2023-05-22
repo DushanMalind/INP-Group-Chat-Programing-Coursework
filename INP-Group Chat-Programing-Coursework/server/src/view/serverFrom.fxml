@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ServerFromController">
    <children>
-      <TextArea fx:id="txtAreaServer" layoutX="80.0" layoutY="99.0" prefHeight="324.0" prefWidth="640.0" />
+      <TextArea fx:id="txtAreaServer" layoutX="80.0" layoutY="99.0" prefHeight="324.0" prefWidth="640.0" style="-fx-background-color: green;" styleClass="text-area" stylesheets="@../back.css" />
       <TextField fx:id="txtFiledServer" layoutX="80.0" layoutY="458.0" prefHeight="58.0" prefWidth="444.0" />
       <JFXButton fx:id="btnNewSend" layoutX="555.0" layoutY="458.0" onAction="#btnSend" prefHeight="58.0" prefWidth="163.0" text="Send" />
       <Label layoutX="4.0" prefHeight="58.0" prefWidth="798.0" text="Label" />
