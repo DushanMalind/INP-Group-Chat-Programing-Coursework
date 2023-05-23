@@ -67,7 +67,8 @@ public class Client1FromController {
 
             dataOutputStream.writeUTF(txtFiledClient1.getText().trim());
             reply=txtFiledClient1.getText();
-            txtAreaClient1.appendText("\nClient1 :"+reply);
+            txtAreaClient1.setStyle("-fx-text-fill: blue;-fx-border-color: #FF0000;-fx-font-size: 20;");
+            txtAreaClient1.appendText("\n\t\t\t\t\t\t\t\t\t\t\tClient1 :"+reply);
             dataOutputStream.flush();
             txtFiledClient1.clear();
 

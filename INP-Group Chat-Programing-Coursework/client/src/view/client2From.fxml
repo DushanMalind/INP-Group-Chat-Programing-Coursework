@@ -5,13 +5,23 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Client2FromController">
    <children>
-      <TextArea fx:id="txtAreaClient2" layoutX="100.0" layoutY="119.0" prefHeight="324.0" prefWidth="640.0" />
-      <TextField fx:id="txtFiledClient12" layoutX="100.0" layoutY="478.0" prefHeight="58.0" prefWidth="444.0" />
-      <JFXButton fx:id="btnNewSend" layoutX="575.0" layoutY="478.0" onAction="#btnSend" prefHeight="58.0" prefWidth="163.0" text="Send" />
-      <Label layoutX="14.0" layoutY="18.0" prefHeight="58.0" prefWidth="798.0" text="Label" />
+      <TextArea fx:id="txtAreaClient2" layoutX="100.0" layoutY="119.0" prefHeight="324.0" prefWidth="640.0" promptText="Messga Area" />
+      <TextField fx:id="txtFiledClient12" layoutX="100.0" layoutY="478.0" prefHeight="58.0" prefWidth="444.0" promptText="Messga Type">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font></TextField>
+      <JFXButton fx:id="btnNewSend" layoutX="575.0" layoutY="478.0" onAction="#btnSend" prefHeight="58.0" prefWidth="163.0" text="Send">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font></JFXButton>
+      <Label layoutX="100.0" layoutY="24.0" prefHeight="58.0" prefWidth="480.0" style="-fx-background-color: #8338ec;" text="Client 2 Chat From">
+         <font>
+            <Font name="Arial Bold" size="32.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

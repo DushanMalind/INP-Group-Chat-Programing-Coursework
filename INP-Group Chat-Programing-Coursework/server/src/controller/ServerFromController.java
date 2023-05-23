@@ -68,6 +68,7 @@ public class ServerFromController {
                     dataOutputStream2.flush();
                     dataOutputStream3.flush();
 
+
                 }
                /* dataInputStream.close();
                 dataOutputStream.close();*/
