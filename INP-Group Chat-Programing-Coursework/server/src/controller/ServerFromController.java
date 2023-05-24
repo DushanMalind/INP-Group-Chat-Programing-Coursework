@@ -1,18 +1,27 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Base64;
 
-public class ServerFromController {
+public class ServerFromController{
 
     @FXML
     private JFXButton btnNewSend;
@@ -42,6 +51,12 @@ public class ServerFromController {
     DataInputStream dataInputStream3;
     DataOutputStream dataOutputStream3;
 
+
+    public VBox vbox;
+    PrintWriter writer;
+    private File file;
+    BufferedReader reader;
+
     String message="";
     String message2="";
     String message3="";
@@ -67,6 +82,12 @@ public class ServerFromController {
 
                     dataOutputStream2.flush();
                     dataOutputStream3.flush();
+
+                   /* InputStream inputStream=socket.getInputStream();
+                    int imageData = inputStream.read();
+                    FileOutputStream fileOutputStream = new FileOutputStream("received_image.jpg");
+                    fileOutputStream.write(imageData);
+                    fileOutputStream.close();*/
 
 
                 }
@@ -142,6 +163,43 @@ public class ServerFromController {
                 e.printStackTrace();
             }
         }).start();
+
+
+
+       /* new Thread(() -> {
+
+        });
+
+        try {
+            // Create a server socket to listen for incoming connections
+            serverSocket = new ServerSocket(3006);
+
+            // Wait for a client to connect
+            socket = serverSocket.accept();
+
+            // Create a data input stream to receive the image data
+            DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+
+            // Read the image data and save it to a file
+            byte[] imageData = new byte[inputStream.available()];
+            inputStream.readFully(imageData);
+            FileOutputStream outputStream = new FileOutputStream("received_image.jpg");
+            outputStream.write(imageData);
+            outputStream.close();
+
+            // Display the received image in a JavaFX window
+            Image image = new Image("file:received_image.jpg");
+            ImageView imageView = new ImageView(image);
+            StackPane root = new StackPane(imageView);
+
+
+            // Close the server socket
+            serverSocket.close();
+        } catch (  IOException e) {
+            e.printStackTrace();
+        }
+*/
+
     }
 
     @FXML

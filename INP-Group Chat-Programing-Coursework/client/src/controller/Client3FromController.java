@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -19,6 +20,8 @@ import java.net.Socket;
 
 public class Client3FromController {
 
+    public Button btnsendImage;
+    public Button btnsendemogi;
     @FXML
     private JFXButton btnNewSend;
 
@@ -80,4 +83,9 @@ public class Client3FromController {
         }
     }
 
+    public void imgOnActon(ActionEvent event) {
+    }
+
+    public void emogiOnActon(ActionEvent event) {
+    }
 }

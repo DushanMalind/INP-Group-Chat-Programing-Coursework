@@ -77,4 +77,9 @@ public class Client2FromController {
         }
     }
 
+    public void imgOnActon(ActionEvent event) {
+    }
+
+    public void emogiOnActon(ActionEvent event) {
+    }
 }

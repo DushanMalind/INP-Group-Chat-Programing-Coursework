@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Client1FromController">
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2b2d42;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Client1FromController">
    <children>
       <TextArea fx:id="txtAreaClient1" layoutX="90.0" layoutY="109.0" prefHeight="324.0" prefWidth="640.0" promptText="Messge Area" />
-      <TextField fx:id="txtFiledClient1" layoutX="90.0" layoutY="468.0" prefHeight="58.0" prefWidth="444.0" promptText="Messge Type">
+      <TextField fx:id="txtFiledClient1" layoutX="90.0" layoutY="468.0" prefHeight="58.0" prefWidth="337.0" promptText="Messge Type">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font></TextField>
-      <JFXButton fx:id="btnNewSend" layoutX="565.0" layoutY="468.0" onAction="#btnSend" prefHeight="58.0" prefWidth="163.0" text="Send">
+      <JFXButton fx:id="btnNewSend" layoutX="577.0" layoutY="468.0" onAction="#btnSend" prefHeight="58.0" prefWidth="151.0" style="-fx-background-color: #80ed99;" text="Send">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></JFXButton>
@@ -22,5 +25,17 @@
          <font>
             <Font name="Arial Bold" size="32.0" />
          </font></Label>
+      <ImageView fitHeight="58.0" fitWidth="57.0" layoutX="513.0" layoutY="468.0" pickOnBounds="true">
+         <image>
+            <Image url="@assets/img/icons8-emoji-66.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="57.0" layoutX="437.0" layoutY="468.0" pickOnBounds="true">
+         <image>
+            <Image url="@assets/img/icons8-camera-48.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnsendImage" layoutX="437.0" layoutY="471.0" mnemonicParsing="false" onAction="#imgOnActon" prefHeight="52.0" prefWidth="57.0" text="img" />
+      <Button fx:id="btnsendemogi" layoutX="513.0" layoutY="471.0" mnemonicParsing="false" onAction="#emogiOnActon" prefHeight="52.0" prefWidth="57.0" />
    </children>
 </AnchorPane>
