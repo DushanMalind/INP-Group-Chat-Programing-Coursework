@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -23,6 +24,8 @@ public class Client3FromController {
 
     public Button btnsendImage;
     public Button btnsendemogi;
+    public JFXButton btnNewhandel;
+    public JFXButton btnNewhandelMax;
     @FXML
     private JFXButton btnNewSend;
 
@@ -73,9 +76,8 @@ public class Client3FromController {
         try {
             dataOutputStream.writeUTF(txtFiledClient3.getText().trim());
             reply=txtFiledClient3.getText();
-            txtAreaClient3.setStyle("-fx-text-fill: blue;-fx-border-color: #FF0000;-fx-font-size: 20;");
-
-
+            txtAreaClient3.setStyle("-fx-text-fill: red;-fx-border-color: #FF0000;-fx-font-size: 20;");
+            txtAreaClient3.setWrapText(true);
             txtAreaClient3.appendText("\n\t\t\t\t\t\t\t\t\t\t\tClient3 :"+reply);
             dataOutputStream.flush();
             txtFiledClient3.clear();
@@ -95,5 +97,21 @@ public class Client3FromController {
         txtFiledClient3.appendText("\uD83D\uDE34");
         txtFiledClient3.setText(txtFiledClient3.getText() + " "+ emoji);
 
+    }
+
+    Stage stage=null;
+
+    public void btnOnAction(ActionEvent event) {
+        stage=(Stage) root.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    public void btnOnActionMax(ActionEvent event) {
+        stage=(Stage) root.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(false);
+        }else {
+            stage.setMaximized(true);
+        }
     }
 }

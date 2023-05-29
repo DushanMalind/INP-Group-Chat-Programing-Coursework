@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -43,6 +44,8 @@ public class Client1FromController extends Thread{
     public Button btnsendemogi;
     public Label labIomj;
     public ImageView firstEMO;
+    public JFXButton btnNewhandel;
+    public JFXButton btnNewhandelMax;
     @FXML
     private JFXButton btnNewSend;
 
@@ -110,6 +113,8 @@ public class Client1FromController extends Thread{
             dataOutputStream.writeUTF(txtFiledClient1.getText().trim());
             reply=txtFiledClient1.getText();
             txtAreaClient1.setStyle("-fx-text-fill: blue;-fx-border-color: #FF0000;-fx-font-size: 20;-fx-background-radius: 20px;-fx-font-size: 20px; -fx-border-color: darkslateblue;-fx-border-radius: 20px;-fx-border-width: 2px;-fx-text-alignment: center");
+
+            txtAreaClient1.setWrapText(true);
 
             /* textFlow.setStyle("-fx-background-color: darkturquoise; -fx-text-fill: white; -fx-background-radius: 20px;-fx-font-size: 20px; -fx-border-color: darkslateblue;-fx-border-radius: 20px;-fx-border-width: 2px;-fx-text-alignment: center");*/
             txtAreaClient1.appendText("\n\t\t\t\t\t\t\t\t\t\t\tClient1 :"+reply);
@@ -277,6 +282,34 @@ public class Client1FromController extends Thread{
         txtFiledClient1.setText(txtFiledClient1.getText() + " "+ emoji);
     }
 
+    Stage stage=null;
+
+    public void btnOnAction(ActionEvent event) {
+       /*start();
+        Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+        stage.setIconified(true);*/
+        stage=(Stage) root.getScene().getWindow();
+        stage.setIconified(true);
+
+    }
+
+    public void start(Stage stage) {
+        //Maximized
+        stage.setMaximized(true);
+
+        //Restore down
+        stage.setMaximized(false);
+    }
 
 
+
+    public void btnOnActionMax(ActionEvent event) {
+        stage=(Stage) root.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(false);
+        }else {
+            stage.setMaximized(true);
+        }
+
+    }
 }

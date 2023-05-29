@@ -10,21 +10,23 @@
 
 <AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #7400b8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Client3FromController">
    <children>
-      <TextArea fx:id="txtAreaClient3" layoutX="110.0" layoutY="129.0" prefHeight="324.0" prefWidth="640.0" promptText="Messge Area" />
-      <TextField fx:id="txtFiledClient3" layoutX="110.0" layoutY="488.0" prefHeight="58.0" prefWidth="346.0" promptText="Messga Type">
+      <TextArea fx:id="txtAreaClient3" layoutX="110.0" layoutY="129.0" prefHeight="324.0" prefWidth="640.0" promptText="Messge Area" AnchorPane.bottomAnchor="147.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="129.0" />
+      <TextField fx:id="txtFiledClient3" layoutX="110.0" layoutY="488.0" prefHeight="58.0" prefWidth="346.0" promptText="Messga Type" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="344.0">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font></TextField>
-      <JFXButton fx:id="btnNewSend" layoutX="611.0" layoutY="488.0" onAction="#btnSend" prefHeight="58.0" prefWidth="137.0" style="-fx-background-color: #80ed99;" text="Send">
+      <JFXButton fx:id="btnNewSend" layoutX="611.0" layoutY="488.0" onAction="#btnSend" prefHeight="58.0" prefWidth="137.0" style="-fx-background-color: #80ed99;" text="Send" AnchorPane.bottomAnchor="54.0" AnchorPane.rightAnchor="52.0">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font></JFXButton>
-      <Label layoutX="110.0" layoutY="34.0" prefHeight="58.0" prefWidth="480.0" style="-fx-background-color: #06d6a0;" text="Client 3 Chat From">
+      <Label layoutX="110.0" layoutY="24.0" prefHeight="58.0" prefWidth="480.0" style="-fx-background-color: #06d6a0;" text="Client 3 Chat From" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="210.0">
          <font>
             <Font name="Arial Bold" size="32.0" />
          </font>
       </Label>
-      <Button fx:id="btnsendImage" layoutX="476.0" layoutY="491.0" mnemonicParsing="false" onAction="#imgOnActon" prefHeight="52.0" prefWidth="57.0" text="img" />
-      <Button fx:id="btnsendemogi" layoutX="547.0" layoutY="491.0" mnemonicParsing="false" onAction="#emogiOnActon" prefHeight="52.0" prefWidth="57.0" text="Emo" />
+      <Button fx:id="btnsendImage" layoutX="476.0" layoutY="491.0" mnemonicParsing="false" onAction="#imgOnActon" prefHeight="52.0" prefWidth="57.0" text="img" AnchorPane.bottomAnchor="57.0" AnchorPane.rightAnchor="267.0" />
+      <Button fx:id="btnsendemogi" layoutX="540.0" layoutY="491.0" mnemonicParsing="false" onAction="#emogiOnActon" prefHeight="52.0" prefWidth="57.0" text="Emo" AnchorPane.bottomAnchor="57.0" AnchorPane.rightAnchor="203.0" />
+      <JFXButton fx:id="btnNewhandel" layoutX="597.0" layoutY="31.0" onAction="#btnOnAction" prefHeight="44.0" prefWidth="57.0" style="-fx-background-color: #ffddd2;" text="MIN" AnchorPane.rightAnchor="146.0" />
+      <JFXButton fx:id="btnNewhandelMax" layoutX="668.0" layoutY="31.0" onAction="#btnOnActionMax" prefHeight="44.0" prefWidth="57.0" style="-fx-background-color: #ffd000;" text="MAX" AnchorPane.rightAnchor="75.0" />
    </children>
 </AnchorPane>
