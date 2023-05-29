@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
+import java.nio.charset.Charset;
 
 public class Client2FromController {
 
@@ -81,5 +82,11 @@ public class Client2FromController {
     }
 
     public void emogiOnActon(ActionEvent event) {
+        byte[] emojiByteCode = new byte[]{(byte)0xF0,(byte)0x9F, (byte)0x98, (byte)0x81};
+        String emoji = new String(emojiByteCode, Charset.forName("UTF-8"));
+        txtFiledClient12.appendText("\uD83D\uDE07");
+        txtFiledClient12.appendText("\uD83E\uDD2D");
+        txtFiledClient12.appendText("\uD83D\uDE34");
+        txtFiledClient12.setText(txtFiledClient12.getText() + " "+ emoji);
     }
 }

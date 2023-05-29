@@ -11,10 +11,12 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -39,6 +41,8 @@ public class Client1FromController extends Thread{
 
     public Button btnsendImage;
     public Button btnsendemogi;
+    public Label labIomj;
+    public ImageView firstEMO;
     @FXML
     private JFXButton btnNewSend;
 
@@ -107,7 +111,7 @@ public class Client1FromController extends Thread{
             reply=txtFiledClient1.getText();
             txtAreaClient1.setStyle("-fx-text-fill: blue;-fx-border-color: #FF0000;-fx-font-size: 20;-fx-background-radius: 20px;-fx-font-size: 20px; -fx-border-color: darkslateblue;-fx-border-radius: 20px;-fx-border-width: 2px;-fx-text-alignment: center");
 
-           /* textFlow.setStyle("-fx-background-color: darkturquoise; -fx-text-fill: white; -fx-background-radius: 20px;-fx-font-size: 20px; -fx-border-color: darkslateblue;-fx-border-radius: 20px;-fx-border-width: 2px;-fx-text-alignment: center");*/
+            /* textFlow.setStyle("-fx-background-color: darkturquoise; -fx-text-fill: white; -fx-background-radius: 20px;-fx-font-size: 20px; -fx-border-color: darkslateblue;-fx-border-radius: 20px;-fx-border-width: 2px;-fx-text-alignment: center");*/
             txtAreaClient1.appendText("\n\t\t\t\t\t\t\t\t\t\t\tClient1 :"+reply);
             dataOutputStream.flush();
             txtFiledClient1.clear();
@@ -128,21 +132,18 @@ public class Client1FromController extends Thread{
         File selectedFile = fileChooser.showOpenDialog(btnsendImage.getScene().getWindow());
         if (selectedFile != null) {
             try {
-                // Read the image file and convert it into bytes
+
                 byte[] imageData = new byte[(int) selectedFile.length()];
                 FileInputStream fileInputStream = new FileInputStream(selectedFile);
                 fileInputStream.read(imageData);
                 fileInputStream.close();
 
-                // Establish a connection with the server
                  socket = new Socket("localhost", 3001);
 
-                // Send the image bytes to the server
                 OutputStream outputStream = socket.getOutputStream();
                 outputStream.write(imageData);
                 outputStream.flush();
 
-                // Close the connection
                 socket.close();
 
                 System.out.println("Image sent successfully.");
@@ -268,6 +269,14 @@ public class Client1FromController extends Thread{
 
 
     public void emogiOnActon(ActionEvent event) {
-
+        byte[] emojiByteCode = new byte[]{(byte)0xF0,(byte)0x9F, (byte)0x98, (byte)0x81};
+        String emoji = new String(emojiByteCode, Charset.forName("UTF-8"));
+        txtFiledClient1.appendText("\uD83D\uDE07");
+        txtFiledClient1.appendText("\uD83E\uDD2D");
+        txtFiledClient1.appendText("\uD83D\uDE34");
+        txtFiledClient1.setText(txtFiledClient1.getText() + " "+ emoji);
     }
+
+
+
 }
