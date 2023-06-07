@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #0077b6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Client2FromController">
    <children>
-      <TextArea fx:id="txtAreaClient2" layoutX="100.0" layoutY="119.0" prefHeight="324.0" prefWidth="640.0" promptText="Messga Area" AnchorPane.bottomAnchor="157.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="119.0" />
+      <TextArea fx:id="txtAreaClient2" layoutX="645.0" layoutY="119.0" prefHeight="324.0" prefWidth="95.0" promptText="Messga Area" AnchorPane.bottomAnchor="157.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="119.0" />
       <TextField fx:id="txtFiledClient12" layoutX="100.0" layoutY="478.0" prefHeight="58.0" prefWidth="357.0" promptText="Messga Type" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="343.0">
          <font>
             <Font name="Arial Bold" size="18.0" />
